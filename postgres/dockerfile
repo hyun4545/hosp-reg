@@ -1,0 +1,10 @@
+# 使用官方的 PostgreSQL 映像作為基本映像
+FROM postgres:latest
+
+# 將自定義初始化腳本複製到容器中
+COPY init.sql /docker-entrypoint-initdb.d/
+
+# 假設 init.sql 包含初始化數據庫的 SQL 語句
+
+# 運行 PostgreSQL 服務
+CMD ["postgres"]
